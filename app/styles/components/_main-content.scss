@@ -1,0 +1,173 @@
+/* MAIN CONTENT style sheet
+
+This stylesheet addresses the main content (document view) styles,
+aand related media queries.
+
+*/
+
+.content-main-wrapper { /* document view */
+  $topgutter: 10%;
+  height:$window-height - $topgutter;
+  overflow-x:hidden;
+  overflow-y:auto;
+}
+
+/* Main area */
+.document-area {
+  float:left;
+  position:relative;
+  height:100%;
+
+  .navbar {
+    &:first-child {
+      color: $dark-grey;
+      border-bottom: 1px solid $light-grey;
+      @include border-radius(0px);
+    }
+  }
+
+}
+
+/* Secondary screen */
+.content-secondary-wrapper {
+  height:100%;
+}
+
+/* Collapsible content – main view */
+.claim-wrapper {
+  
+  &>h4 {
+    display:block;
+    width:100%;
+    font-size:14px;
+    font-weight:normal;
+    background:$mid-grey;
+    color:$black;
+    padding:5px;
+    margin-bottom:8px;
+    cursor:pointer;
+    @include border-radius (2px);
+    
+    .claim-number {
+      background:$white;
+      font-size:10px;
+      padding:2px 1px;
+      margin-right:5px;
+      text-align:center;
+      width:18px;
+      display:block;
+      float:left;
+      @include border-radius (4px);
+    }
+    
+  }
+  
+  a {
+    cursor:pointer;
+    background:url(../images/tree-t.png) no-repeat center 5px;
+    margin-left:-4px;
+    &:hover {
+      text-decoration:none;
+      span {
+        border-color:darken($mid-grey, 15%);
+      }
+    }
+    span {
+      @include square-number;
+      color:$dark-grey;
+      display:inline-block;
+      margin:0 4px;
+    }
+  }
+  
+  [id*="claim"] {
+    span {
+      float:left;
+      @include square-number;
+      margin-left:-25px;
+    }
+    ul {
+      padding:0;
+      margin:0;
+      li {
+        padding-left:20px;
+        margin-left:5px;
+        margin-top:20px;
+        list-style:none;
+      }
+    }
+  }
+  
+}
+
+
+/* --- Media Queries --- */
+
+/* Responsive: Portrait tablets and up */
+@media screen and (min-width: 768px) {
+  .container-main {
+    
+    /* Main area */
+    .document-area {
+      float:left;
+      width:82%;
+      height:100%;
+    }
+
+    &.dual-screen { /* everything inside here modifies the dual screen view */
+
+      .screen-one, .screen-two {
+        float:left;
+        width:50%;
+        .annotations {
+          .annotation {
+            span {
+              float:right;
+            }
+            h5, p {
+              display: none;
+            }
+          }
+        }
+        .secondary-content {
+          display: none;
+        }
+      }
+
+      .screen-two {
+        display: block;
+        height:100%;
+        background:#dedede;
+        img {
+          width:95%;
+        }
+        header {
+          float: left;
+          width: 100%;
+          margin-bottom:10px;
+          h5 {
+            float:left;
+            padding: 5px 0 0 60px;
+          }
+          button.close {
+            display: block;
+            padding:15px 15px 0 0;
+          }
+        }
+
+        .comms {
+          float: left;
+          background: white;
+          height: 94%;
+          width: 96.5%;
+          overflow:auto;
+          padding: 15px 0;
+          margin: 0 15px 15px 15px;
+        }
+
+      }
+
+    }
+
+  }
+}

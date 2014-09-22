@@ -1,0 +1,11 @@
+claim,number,parent,children
+First Claim,1,0,0
+Second Claim,2,0,0
+Third Claim,3,0,3
+Fourth Claim, 4,4,0
+Fith Claim, 5,4,0
+Sixth Claim,6,4,0
+Seventh Claim,7,0,2
+Eighth Claim,9,7,0
+Ninth Claim,10,7,0
+Tenth Claim,10,7,0
